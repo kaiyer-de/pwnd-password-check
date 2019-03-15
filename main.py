@@ -5,9 +5,9 @@ import pwnd as pawned
 
 def main(argv):
     password = "".join(argv)
-    hash = hashlib.sha1(password.encode())
+    h = hashlib.sha1(password.encode()).hexdigest().upper()
 
-    pwnd = pawned.Pwnd(hash.hexdigest())
+    pwnd = pawned.Pwnd(h)
     pwnd.check()
 
 
